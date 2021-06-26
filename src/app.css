@@ -1,0 +1,149 @@
+.app {
+    font-family: Roboto, normal, serif;
+    font-size: 13px;
+}
+
+.sessions-list-container {
+    display: flex;
+    align-items: center;
+    padding: 15px 4px;
+    gap: 20px;
+}
+
+.sessions-list-description {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.sessions-list-description-header {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.sessions-list-description-duration {
+    color: #000;
+}
+
+.sessions-list-description-date {
+    color: #000;
+    opacity: 0.6;
+}
+
+.engagement-score-container {
+    font-weight: 800;
+    color: rgb(4, 70, 202);
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.engagement-score {
+    height: 4px;
+    border-radius: 2px;
+    background-color: rgb(240, 242, 244);
+    width: 100px;
+    display: flex;
+}
+
+.engagement-score-item {
+    display: block;
+    border-radius: 2px;
+    width: 20%;
+    border: 1px solid rgb(255, 255, 255);
+    height: 100%;
+    background-color: rgb(85, 200, 255);
+}
+
+.no-sessions {
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.error {
+    width: 100%;
+    height: 48px;
+    left: 1567px;
+    top: 216px;
+    background: rgba(214, 32, 76, 0.2);
+    border: 1px solid #F60057;
+    box-sizing: border-box;
+    border-radius: 2px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #000;
+    font-weight: bold;
+}
+
+.link {
+    font-size: 12px;
+    line-height: 14px;
+
+    letter-spacing: 0.01em;
+    text-decoration-line: underline;
+
+    color: #0446CA;
+}
+
+.visitor-card {
+    background: #F5F5F5;
+    padding: 15px;
+    display: flex;
+}
+
+.visitor-card-description-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 11px;
+    width: 100%;
+}
+
+.visitor-card-description-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.visitor-card-since {
+    display: flex;
+}
+
+.visitor-card-since-date {
+    margin-left: 10px;
+    color: #000;
+    opacity: 0.6;
+}
+
+.visited-count-icon {
+    margin-right: .35rem;
+    opacity: .5;
+}
+
+.container-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.gap-15 {
+    gap: 15px;
+}
+
+.gap-10 {
+    gap: 10px;
+}
+
+.gap-5 {
+    gap: 5px;
+}
+
+.hr {
+    border: 1px solid #F0F2F4;
+}

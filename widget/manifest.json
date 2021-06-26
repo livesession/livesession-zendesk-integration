@@ -1,0 +1,25 @@
+{
+  "name": "LiveSession",
+  "author": {
+    "name": "LiveSession",
+    "email": "hello@livesession.io",
+    "url": "https://www.livesession.io"
+  },
+  "defaultLocale": "en",
+  "private": false,
+  "location": {
+    "support": {
+      "ticket_sidebar": "assets/index.html"
+    }
+  },
+  "parameters": [
+    {
+      "name": "personal_access_token",
+      "type": "text",
+      "required": true
+    }
+  ],
+  "version": "1.0",
+  "frameworkVersion": "2.0",
+  "termsConditionsURL": "https://livesession.io/terms-of-service"
+}
