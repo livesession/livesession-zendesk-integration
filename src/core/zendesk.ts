@@ -60,12 +60,8 @@ export class ZendeskService {
 
     private async getSessionsByEmail(email: string): Promise<GetRequesterSessionsResponse> {
         try {
-            // {
-            //     email
-            // } TODO:
-
             const params = {
-                // email
+                email,
                 size: SESSIONS_SIZE
             }
 
