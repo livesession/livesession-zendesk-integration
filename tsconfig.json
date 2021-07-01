@@ -73,15 +73,8 @@
     "skipLibCheck": true /* Skip type checking of declaration files. */,
     "forceConsistentCasingInFileNames": true,
     /* Disallow inconsistently-cased references to the same file. */
-    "lib": [
-      "dom",
-      "es5",
-      "scripthost",
-      "es2015.promise"
-    ]
+    "lib": ["dom", "es5", "scripthost", "es2015.promise"]
   },
   "exclude": ["dist"],
-  "include": [
-    "src"
-  ]
+  "include": ["src"]
 }

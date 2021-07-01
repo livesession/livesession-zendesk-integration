@@ -1,51 +1,58 @@
-import {SessionResponse} from "./objects";
+import { SessionResponse } from "./objects";
 
 declare global {
-    const ZAFClient: IZAFClient
+  const ZAFClient: IZAFClient;
 }
 
 interface IZAFClient {
-    init: () => IZAF
+  init: () => IZAF;
+}
+
+export interface IDictionary<TValue> {
+  [id: string]: TValue;
 }
 
 export interface IZAF {
-    invoke: (cmd: string, ...arg: any[]) => void
+  invoke: (cmd: string, ...arg: any[]) => void;
 
-    get: <T>(
-        getter: keyof IZAFGetArgs | string[]
-    ) => Promise<IZAFResponse & T>
+  get: <T>(getter: keyof IZAFGetArgs | string[]) => Promise<IZAFResponse & T>;
 
-    metadata(): Promise<IZAFMetadata>
+  metadata(): Promise<IZAFMetadata>;
 
-    request<T>(params: IZAFRequest): Promise<T>
+  request<T>(params: IZAFRequest): Promise<T>;
 }
 
 export interface IZAFRequest {
-    url: string
-    type: "GET"
-    headers: {
-        Authorization: string
-    }
+  url: string;
+  type: "GET";
+  headers: {
+    Authorization: string;
+  };
 }
 
 interface IZAFGetArgs {
-    'ticket.requester.email': string
+  "ticket.requester.email": string;
 }
 
 interface IZAFResponse {
-    error: {}
+  error: {};
 
-    [key: string]: any
+  [key: string]: any;
 }
 
 interface IZAFLiveSessionSettings {
-    personal_access_token: string
+  personal_access_token: string;
 }
 
 interface IZAFMetadata {
-    settings: IZAFLiveSessionSettings
+  settings: IZAFLiveSessionSettings;
+}
+
+export interface GetSessionsParams {
+  size: number;
+  email: string;
 }
 
 export interface ILiveSessionAPI {
-    getSessions(params: Object): Promise<SessionResponse>
+  getSessions(params: GetSessionsParams): Promise<SessionResponse>;
 }

@@ -11,26 +11,26 @@
     "build:package": "npm-run-all build package",
     "build:package-dev": "npm-run-all build-dev package",
     "dev": "webpack --config webpack.dev.js --watch",
-    "serve": "zat server --path dist -c settings.json"
+    "serve": "zat server --path dist -c settings.json",
+    "prettier": "prettier --write ."
   },
   "author": "LiveSession Team",
   "dependencies": {
-    "date-fns": "^2.22.1",
-    "dotenv-webpack": "^7.0.3",
     "promise-polyfill": "^8.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "styled-components": "^5.3.0"
   },
   "devDependencies": {
-    "@types/date-fns": "^2.6.0",
     "@types/react": "^17.0.11",
     "@types/react-dom": "^17.0.8",
     "@types/styled-components": "^5.1.10",
     "copy-webpack-plugin": "^9.0.0",
     "css-loader": "^5.2.6",
+    "dotenv-webpack": "^7.0.3",
     "html-webpack-plugin": "^5.3.2",
     "npm-run-all": "^4.1.5",
+    "prettier": "^2.3.2",
     "rimraf": "^3.0.2",
     "style-loader": "^2.0.0",
     "svg-url-loader": "^7.1.1",

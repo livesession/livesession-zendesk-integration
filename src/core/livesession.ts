@@ -1,62 +1,73 @@
-import {debug} from "../utils/logger";
-import {ILiveSessionAPI, IZAF, IZAFRequest} from "./types";
-import {SessionResponse} from "./objects";
+import { debug } from "../utils/logger";
+import {
+  GetSessionsParams,
+  IDictionary,
+  ILiveSessionAPI,
+  IZAF,
+  IZAFRequest,
+} from "./types";
+import { SessionResponse } from "./objects";
 
-const LS_API_URL = process.env.LS_API_URL || "https://api.livesession.io/v1"
+const LS_API_URL = process.env.LS_API_URL || "https://api.livesession.io/v1";
 
 function ctxDebug(...args: any[]) {
-    debug("LiveSessionAPI", ...args)
+  debug("LiveSessionAPI", ...args);
 }
 
 export function NewLiveSessionAPIMock(): ILiveSessionAPI {
-    return {
-        getSessions(params: Object): Promise<SessionResponse> {
-            return new Promise((resolve, reject) => {
-                reject("LiveSessionAPI is empty")
-            })
-        }
-    }
+  return {
+    getSessions(params: object): Promise<SessionResponse> {
+      return new Promise((resolve, reject) => {
+        reject("LiveSessionAPI is empty");
+      });
+    },
+  };
 }
 
 export class LiveSessionAPI implements ILiveSessionAPI {
-    token: string
-    client: IZAF
+  token: string;
+  client: IZAF;
 
-    constructor(token: string, client: IZAF) {
-        this.token = token
-        this.client = client
+  constructor(token: string, client: IZAF) {
+    this.token = token;
+    this.client = client;
+  }
+
+  async getSessions(params: GetSessionsParams): Promise<SessionResponse> {
+    ctxDebug("get session request...");
+
+    return await this.client.request<SessionResponse>(
+      this.requestGET("/sessions", params)
+    );
+  }
+
+  private query(params: IDictionary<any> | null): string {
+    if (!params || !Object.keys(params).length) {
+      return "";
     }
 
-    async getSessions(params: Object): Promise<SessionResponse> {
-        ctxDebug("get session request...")
+    const esc = encodeURIComponent;
+    const query = Object.keys(params)
+      .map((k: string) => esc(k) + "=" + esc(params[k]))
+      .join("&");
 
-        return await this.client.request<SessionResponse>(this.requestGET("/sessions", params))
-    }
+    return `?${query}`;
+  }
 
-    private query(params: Object): string {
-        if (!params || !Object.keys(params).length) {
-            return ""
-        }
+  private requestGET(
+    resource: string,
+    queryParams: null | IDictionary<any>
+  ): IZAFRequest {
+    const params: IZAFRequest = {
+      url: LS_API_URL + resource + this.query(queryParams),
+      type: "GET",
+      headers: {
+        Authorization: "Bearer " + this.token,
+      },
+    };
 
-        const esc = encodeURIComponent;
-        const query = Object.keys(params)
-            .map(k => esc(k) + '=' + esc(params[k]))
-            .join('&');
+    ctxDebug("http get", params.url);
 
-        return `?${query}`
-    }
-
-    private requestGET(resource: string, queryParams: null | Object): IZAFRequest {
-        const params: IZAFRequest = {
-            url: LS_API_URL + resource + this.query(queryParams),
-            type: "GET",
-            headers: {
-                Authorization: "Bearer " + this.token
-            }
-        }
-
-        ctxDebug("http get", params.url)
-
-        return params
-    }
+    return params;
+  }
 }

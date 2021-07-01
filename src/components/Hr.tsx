@@ -1,5 +1,5 @@
-import React from "react"
+import React from "react";
 
 export function Hr() {
-    return <div className="hr"/>
+  return <div className="hr" />;
 }

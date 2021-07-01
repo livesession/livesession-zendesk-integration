@@ -1,7 +1,5 @@
-import React from "react"
+import React from "react";
 
 export function NoSessions() {
-    return <div className="no-sessions">
-        No sessions
-    </div>
+  return <div className="no-sessions">No sessions</div>;
 }
