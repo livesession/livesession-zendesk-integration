@@ -2,7 +2,6 @@ import React from "react";
 
 import { Visitor } from "../core/objects";
 import { Avatar } from "./Avatar";
-import { VisitedCount } from "./VisitedCount";
 import { placeholderWrapper } from "./Placeholder";
 import { ISO_COUNTRIES } from "../const/countries";
 import { CountryCode } from "./CountryCode";
@@ -49,7 +48,6 @@ function renderSince(visitor: Visitor) {
 
   return (
     <div className="visitor-card-since">
-      <VisitedCount count={visitor.sessions_statistics.count} />
       <div className="visitor-card-since-date">{date}</div>
     </div>
   );
