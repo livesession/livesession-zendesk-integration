@@ -27,6 +27,10 @@ export class ZendeskService {
     }
 
     this._api = null;
+
+    const token = "{{setting.livesession_personal_access_token}}"
+    this.api = new LiveSessionAPI(token, this.client);
+    ctxDebug("LiveSession API constructed");
   }
 
   private get api(): ILiveSessionAPI {
@@ -41,10 +45,8 @@ export class ZendeskService {
     this._api = theApi;
   }
 
-  async init() {
-    const token = await this.getToken();
-    ctxDebug("fetched token", token);
-    this.api = new LiveSessionAPI(token, this.client);
+  init() {
+    ctxDebug("init");
 
     this.client.invoke("resize", { width: "100%", height: "500px" });
   }
@@ -97,11 +99,6 @@ export class ZendeskService {
         sessions: null,
       };
     }
-  }
-
-  private async getToken(): Promise<string> {
-    const metadataResp = await this.client.metadata();
-    return metadataResp.settings.livesession_personal_access_token;
   }
 
   static httpError(err: any): any {

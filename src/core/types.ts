@@ -28,6 +28,7 @@ export interface IZAFRequest {
   headers: {
     Authorization: string;
   };
+  secure: boolean
 }
 
 interface IZAFGetArgs {

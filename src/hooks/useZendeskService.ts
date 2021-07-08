@@ -7,14 +7,10 @@ export function useZendeskService(): HookResult<ZendeskService | null> {
   const [zendesk, setZendesk] = useState<ZendeskService | null>(null);
 
   useEffect(() => {
-    async function init() {
-      const service = new ZendeskService();
-      await service.init();
+    const service = new ZendeskService();
+    service.init();
 
-      setZendesk(service);
-    }
-
-    init();
+    setZendesk(service);
   }, []);
 
   return {

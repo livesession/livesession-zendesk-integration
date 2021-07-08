@@ -61,6 +61,7 @@ export class LiveSessionAPI implements ILiveSessionAPI {
     const params: IZAFRequest = {
       url: LS_API_URL + resource + this.query(queryParams),
       type: "GET",
+      secure: true,
       headers: {
         Authorization: "Bearer " + this.token,
       },
