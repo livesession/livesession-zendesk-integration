@@ -5,7 +5,7 @@
     "installation_instructions": "Installation instructions:\n\n* Find the LiveSession app in the Zendesk [marketplace](https://www.zendesk.com/apps/directory).\n* Click the \"Install\" button to add our app to your Zendesk account.\n* Update LiveSession’s \"Personal Access Token\" in the [manage settings](https://support.zendesk.com/hc/en-us/articles/203662486-Managing-your-installed-apps) tab.\n* Click \"Update\" to apply changes.\n* Be sure that you use the [identify](https://livesession.io/help/user-identification-custom-properties) API along with the email property.\n",
     "name": "LiveSession",
     "parameters": {
-      "personal_access_token": {
+      "livesession_personal_access_token": {
         "label": "Personal Access Token",
         "helpText": "Personal Access Token"
       }

@@ -14,9 +14,10 @@
   },
   "parameters": [
     {
-      "name": "personal_access_token",
+      "name": "livesession_personal_access_token",
       "type": "text",
-      "required": true
+      "required": true,
+      "secure": true
     }
   ],
   "version": "1.0",

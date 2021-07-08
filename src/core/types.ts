@@ -41,7 +41,7 @@ interface IZAFResponse {
 }
 
 interface IZAFLiveSessionSettings {
-  personal_access_token: string;
+  livesession_personal_access_token: string;
 }
 
 interface IZAFMetadata {

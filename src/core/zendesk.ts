@@ -101,7 +101,7 @@ export class ZendeskService {
 
   private async getToken(): Promise<string> {
     const metadataResp = await this.client.metadata();
-    return metadataResp.settings.personal_access_token;
+    return metadataResp.settings.livesession_personal_access_token;
   }
 
   static httpError(err: any): any {
