@@ -12,6 +12,7 @@
       "ticket_sidebar": "assets/index.html"
     }
   },
+  "domainWhitelist": ["api.livesession.io"],
   "parameters": [
     {
       "name": "livesession_personal_access_token",
