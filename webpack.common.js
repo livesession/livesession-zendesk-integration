@@ -70,11 +70,10 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        use: [
-          {
-            loader: "svg-url-loader",
-          },
-        ],
+        type: "asset/resource",
+        generator: {
+          filename: "[name][ext]",
+        },
       },
     ],
   },

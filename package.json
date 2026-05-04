@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "clean": "rimraf dist/tmp",
-    "build": "webpack --config webpack.prod.js",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider webpack --config webpack.prod.js",
+    "zip": "cd dist && zip -r ../livesession-zendesk.zip .",
     "profile": "webpack --config webpack.prod.js --profile --json > webpack-stats.json",
     "build-dev": "webpack --config webpack.dev.js",
     "package": "npm-run-all clean && zat package --path ./dist",

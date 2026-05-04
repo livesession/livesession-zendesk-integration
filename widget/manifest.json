@@ -18,7 +18,8 @@
       "name": "livesession_personal_access_token",
       "type": "text",
       "required": true,
-      "secure": true
+      "secure": true,
+      "scopes": ["header"]
     }
   ],
   "version": "1.0",
